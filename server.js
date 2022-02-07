@@ -1,23 +1,39 @@
-const http = require('http');
+// const http = require('http');
+// const fs = require('fs');
+
+
+// const server = http.createServer((request, response)=>{
+//    fs.readFile('./Resource/test.txt', (err, data)=>{
+//       response.end(data)
+
+//    } );
+   
+// });
+
+// server.listen(5000);
+
+// const server = http.createServer((request, response)=>{
+//    const stream = fs.createReadStream('./Resource/test.txt')
+//    stream.pipe(response);
+      
+
+   
+// });
+
+// server.listen(5000);
+
+
+const http = require('http')
+const fs = require('fs')
 
 const server = http.createServer((request, response)=>{
-   if(request.url==='/'){
-      response.write('Welcome to the website');
-   }
-   //console.log(request);
-   
-   if(request.url==='/above'){
-      response.write('Welcome above');
-   }
-   response.end();
+   const stream = fs.createReadStream('./Resource/test.txt')
+         stream.pipe(response);      
+ 
+
 
 });
-
-server.listen(5000);
-
-
-
-
+server.listen(8000);
 
 
 
